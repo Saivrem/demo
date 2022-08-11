@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: "employee-management-service"
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_URL}/${DB_NAME}?useUnicode=true&characterEncoding=UTF-8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+server:
+  port: 8086
+
+application:
+  endpoint:
+    root: api/v1
+    employee: employee
+    task: task
+
