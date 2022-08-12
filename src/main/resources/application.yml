@@ -18,6 +18,6 @@ server:
 application:
   endpoint:
     root: api/v1
-    employee: employee
-    task: task
+    employee: ${application.endpoint.root}/employees
+    task: ${application.endpoint.root}/tasks
 
