@@ -25,7 +25,7 @@ public class EmployeeService {
     @Transactional
     public void save(Employee employee) throws ValidationException {
         if (validationService.isValidEmployee(employee)) {
-            Employee existingEmployee = employeeRepository.findAllByUniqueNumber(employee.getUniqueNumber());
+            Employee existingEmployee = employeeRepository.findByUniqueNumber(employee.getUniqueNumber());
             if (existingEmployee == null) {
                 employeeRepository.save(employee);
             } else {

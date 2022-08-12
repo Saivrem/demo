@@ -4,7 +4,6 @@ import com.example.demo.persistence.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-
-    Employee findAllByUniqueNumber(String uniqueNumber);
+    Employee findByUniqueNumber(String uniqueNumber);
 
 }
