@@ -38,6 +38,7 @@ public class EmployeeService {
     private Employee updateFields(Employee existingEmployee, Employee updatedEmployee) {
         return existingEmployee.setDepartment(updatedEmployee.getDepartment())
                                .setSalary(updatedEmployee.getSalary())
+                               //TODO implement tasks merging instead of replacement
                                .setTasks(updatedEmployee.getTasks());
     }
 }

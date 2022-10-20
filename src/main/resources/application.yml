@@ -2,15 +2,15 @@ spring:
   application:
     name: "employee-management-service"
   jpa:
-    database: MYSQL
     show-sql: true
     hibernate:
       ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${DB_URL}/${DB_NAME}?useUnicode=true&characterEncoding=UTF-8
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./mydb
+    username: sa
+    password:
 
 server:
   port: 8086
