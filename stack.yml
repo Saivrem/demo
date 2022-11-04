@@ -1,0 +1,14 @@
+version: "3.1"
+services:
+  db:
+    image: "postgres"
+    container_name: "demo-postgres"
+    restart: always
+    env_file:
+      - env
+    ports:
+      - "54320:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  pg_data:
