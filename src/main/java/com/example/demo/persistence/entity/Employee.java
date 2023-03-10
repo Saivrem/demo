@@ -13,12 +13,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.Index;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
+@Table(indexes = @Index(name = "unique_number_idx", columnList = "uniqueNumber"))
 @Accessors(chain = true)
 public class Employee {
 
@@ -36,7 +38,6 @@ public class Employee {
     private Double salary;
     private LocalDate hired;
 
-    @OneToMany
-    @JoinColumn(name = "employee_id")
+    @OneToMany(mappedBy = "employee")
     List<Task> tasks = new ArrayList<>();
 }

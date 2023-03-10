@@ -27,10 +27,12 @@ dependencies {
 
 	// just in case I will consider h2db usage
 	// implementation 'com.h2database:h2:2.1.214'
-	implementation 'org.postgresql:postgresql:42.2.26'
+	implementation 'org.postgresql:postgresql:42.2.27'
+
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

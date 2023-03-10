@@ -1,7 +1,6 @@
 package com.example.demo.validation;
 
 import com.example.demo.exception.ValidationException;
-import com.example.demo.persistence.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
@@ -14,12 +13,12 @@ import javax.validation.Validator;
 
 @Service
 @RequiredArgsConstructor
-public class ValidationService {
+public class ValidationService<T> {
 
     private final Validator validator;
 
-    public boolean isValidEmployee(Employee employee) throws ValidationException {
-        Set<ConstraintViolation<Employee>> constraintViolations = validator.validate(employee);
+    public boolean isValid(T t) throws ValidationException {
+        Set<ConstraintViolation<T>> constraintViolations = validator.validate(t);
 
         if (CollectionUtils.isNotEmpty(constraintViolations)) {
             throw new ValidationException(buildViolationsList(constraintViolations));
@@ -27,7 +26,7 @@ public class ValidationService {
         return true;
     }
 
-    private <T> List<Violation> buildViolationsList(Set<ConstraintViolation<T>> constraintViolations) {
+    private List<Violation> buildViolationsList(Set<ConstraintViolation<T>> constraintViolations) {
         return constraintViolations.stream()
                                    .map(violation -> new Violation(
                                                    violation.getPropertyPath().toString(),
