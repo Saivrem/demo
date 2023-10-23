@@ -47,6 +47,5 @@ class DemoApplicationTests {
     void contextLoads() {
         List<Employee> all = employeeRepository.findAll();
         Assertions.assertFalse(all.isEmpty());
-        Assertions.fail("This is fail on purpose");
     }
 }
