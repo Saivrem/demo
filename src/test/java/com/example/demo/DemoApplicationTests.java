@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.persistence.EmployeeRepository;
 import com.example.demo.persistence.TaskRepository;
 import com.example.demo.persistence.entity.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootContextLoader;
@@ -45,6 +46,6 @@ class DemoApplicationTests {
     @Sql("/data/insert.sql")
     void contextLoads() {
         List<Employee> all = employeeRepository.findAll();
-        all.forEach(System.out::println);
+        Assertions.assertFalse(all.isEmpty());
     }
 }
