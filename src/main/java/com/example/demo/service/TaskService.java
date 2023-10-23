@@ -8,13 +8,12 @@ import com.example.demo.persistence.entity.Task;
 import com.example.demo.validation.ValidationService;
 import com.example.demo.validation.Violation;
 import com.fasterxml.jackson.databind.JsonNode;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-
-import javax.transaction.Transactional;
 
 import static com.example.demo.utils.FieldUtils.getValueFromJsonNode;
 
@@ -77,10 +76,9 @@ public class TaskService {
     }
 
 
-
     private Task updateFields(Task existing, Task upcoming) {
         return existing.setTaskName(upcoming.getTaskName())
-                       .setDescription(upcoming.getDescription())
-                       .setDueDate(upcoming.getDueDate());
+                .setDescription(upcoming.getDescription())
+                .setDueDate(upcoming.getDueDate());
     }
 }

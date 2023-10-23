@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 
 @Service
 @RequiredArgsConstructor

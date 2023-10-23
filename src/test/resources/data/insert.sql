@@ -1,0 +1,12 @@
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2022-10-01', 'Johansen', 100.01, 'TEST54321');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Jan', '2022-10-01', 'Doe', 100.01, 'TEST12346');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.014383342868833582');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.9652298182209254');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.44065177450131454');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.5222972166413782');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.33318746718802483');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.37404083066432725');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.4906373863675808');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.5968433719480342');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.30818718100183595');
+INSERT INTO public.employee (department, first_name, hired, last_name, salary, unique_number) VALUES ('HR', 'Johan', '2023-08-16', 'Johansen', 100, '0.048739540664428205');
