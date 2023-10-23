@@ -47,5 +47,6 @@ class DemoApplicationTests {
     void contextLoads() {
         List<Employee> all = employeeRepository.findAll();
         Assertions.assertFalse(all.isEmpty());
+        Assertions.fail("Meant to fail here");
     }
 }
