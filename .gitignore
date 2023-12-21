@@ -6,6 +6,7 @@ build/
 !**/src/test/**/build/
 *.db
 /env
+application-local.yml
 
 ### STS ###
 .apt_generated

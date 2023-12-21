@@ -6,14 +6,13 @@ import com.example.demo.persistence.entity.Employee;
 import com.example.demo.validation.ValidationService;
 import com.example.demo.validation.Violation;
 import com.fasterxml.jackson.databind.JsonNode;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import jakarta.transaction.Transactional;
 
 import static com.example.demo.utils.FieldUtils.getValueFromJsonNode;
 
@@ -56,6 +55,6 @@ public class EmployeeService {
 
     private Employee updateFields(Employee existingEmployee, Employee updatedEmployee) {
         return existingEmployee.setDepartment(updatedEmployee.getDepartment())
-                               .setSalary(updatedEmployee.getSalary());
+                .setSalary(updatedEmployee.getSalary());
     }
 }
