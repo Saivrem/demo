@@ -35,7 +35,7 @@ public class TaskController {
             String orUpdateTask = taskService.createOrUpdateTask(task);
             return ResponseEntity.status(HttpStatus.CREATED).body(orUpdateTask);
         } catch (ValidationException e) {
-            return ResponseEntity.badRequest().body(e.getViolations());
+            return ResponseEntity.badRequest().body(e.getProblemReports());
         }
     }
 
@@ -44,7 +44,7 @@ public class TaskController {
         try {
             taskService.manageTask(jsonNode);
         } catch (ValidationException e) {
-            return ResponseEntity.badRequest().body(e.getViolations());
+            return ResponseEntity.badRequest().body(e.getProblemReports());
         }
 
         return ResponseEntity.status(HttpStatus.CREATED).build();

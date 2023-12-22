@@ -1,18 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.exception.ValidationException;
 import com.example.demo.persistence.entity.Employee;
 import com.example.demo.service.EmployeeService;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,26 +18,18 @@ public class EmployeeController {
 
     @GetMapping
     public ResponseEntity<List<Employee>> getEmployees() {
-        return ResponseEntity.ok().body(employeeService.getAllEmployees());
+        return ResponseEntity.ok().body(employeeService.findAll());
     }
 
     @PostMapping
     public ResponseEntity<?> createOrUpdateEmployee(@RequestBody final Employee employee) {
-        try {
-            employeeService.save(employee);
-        } catch (ValidationException e) {
-            return ResponseEntity.badRequest().body(e.getViolations());
-        }
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        employeeService.create(employee);
+        return ResponseEntity.status(HttpStatus.CREATED).body(employee);
     }
 
     @DeleteMapping
-    public ResponseEntity<?> deleteByUniqueNumber(@RequestBody final JsonNode jsonNode) {
-        try {
-            employeeService.delete(jsonNode);
-        } catch (ValidationException e) {
-            return ResponseEntity.badRequest().body(e.getViolations());
-        }
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    public ResponseEntity<?> deleteByUniqueNumber(@RequestBody final List<Employee> employee) {
+        employeeService.delete(employee);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(employee);
     }
 }
