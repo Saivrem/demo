@@ -7,15 +7,23 @@ on:
         description: 'The name of the feature branch to deploy'
         type: string
         required: true
+      log-level:
+          description: 'log level selector'
+          required: true
+          type: choice
+          options:
+              - info
+              - warning
+              - debug
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          repository: Saivrem/demo
           ref: ${{ inputs.branch-name }}
+          fetch-depth: 0
 
       - name: Set up JDK 17
         uses: actions/setup-java@v2
