@@ -2,11 +2,10 @@ name: Deploy test with trigger
 
 on:
   workflow_dispatch:
-    branches:
-      - RND/*
     inputs:
       branch-name:
         description: 'The name of the feature branch to deploy'
+        type: string
         required: true
 jobs:
   deploy:
