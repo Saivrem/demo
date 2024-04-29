@@ -22,16 +22,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
-
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
+        uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
         with:
-          name: java-app
-          path: build/libs/*.jar
-
+          arguments: clean test
       - name: Deploy to dev environment
         run: |
           # Replace this with your deployment simulation commands
