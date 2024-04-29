@@ -8,12 +8,6 @@ on:
       branch-name:
         description: 'The name of the feature branch to deploy'
         required: true
-  push:
-    branches:
-      - RND/*
-
-
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
